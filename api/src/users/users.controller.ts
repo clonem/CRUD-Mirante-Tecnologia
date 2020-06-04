@@ -9,16 +9,16 @@ import {
   Put,
 } from '@nestjs/common';
 import {
+  ApiBadRequestResponse,
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
-  ApiBadRequestResponse,
 } from '@nestjs/swagger';
 
+import { ErrorResponseDTO } from '../common/dto/error-response.dto';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UserDTO } from './dto/user.dto';
 import { UsersService } from './users.service';
-import { ErrorResponseDTO } from 'src/common/dto/error-response.dto';
 
 @Controller('users')
 export class UsersController {
