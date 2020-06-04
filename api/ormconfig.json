@@ -1,0 +1,19 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "user",
+  "password": "password",
+  "database": "mirante",
+  "entities": [
+      "dist/**/*.entity{.ts,.js}"
+  ],
+  "synchronize": false,
+  "migrationsRun": true,
+  "migrations": [
+      "dist/migrations/**/*{.ts,.js}"
+  ],
+  "cli": {
+      "migrationsDir": "migrations"
+  }
+}
