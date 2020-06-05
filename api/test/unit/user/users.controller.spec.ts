@@ -1,18 +1,19 @@
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { UsersController } from '../../../src/users/users.controller';
+import { expect } from 'chai';
+import { instance, mock } from 'ts-mockito';
+import { UsersService } from '../../../src/users/users.service';
+import { UsersController } from '../../../src/users/users.controller';
 
-// describe('Users Controller', () => {
-//   let controller: UsersController;
+describe('UsersController', () => {
+  let controller: UsersController;
+  let userServiceMock: UsersService;
 
-//   beforeEach(async () => {
-//     const module: TestingModule = await Test.createTestingModule({
-//       controllers: [UsersController],
-//     }).compile();
+  beforeEach(async () => {
+    userServiceMock = mock(UsersService);
 
-//     controller = module.get<UsersController>(UsersController);
-//   });
+    controller = new UsersController(instance(userServiceMock));
+  });
 
-//   it('should be defined', () => {
-//     expect(controller).toBeDefined();
-//   });
-// });
+  it('should be defined', () => {
+    expect(controller).to.not.be.undefined;
+  });
+});
